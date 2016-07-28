@@ -17,7 +17,7 @@
 			<input type="text" ng-model="user.name" required/>
 			<button ng-click="linkdisplayCtrl.fetch(user)">Submit</button>
 		</div>
-		<div class="col-md-7 col-md-offset-1" ng-show="true">
+		<div class="col-md-7 col-md-offset-1" ng-show="linkdisplayCtrl.tableGate">
 			<table class="table-striped">
 				<tr>
 					<td>Total no. of Open Issues :</td>
@@ -38,7 +38,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="col-md-6 col-md-offset-2" ng-show="true">
+	<div class="col-md-6 col-md-offset-2" ng-show="linkdisplayCtrl.responseGate">
 			<h3>The URL did not find a response. Please enter a correct github  url</h3>
 	</div>
 	<!-- /container -->

@@ -3,12 +3,13 @@ angular.module('root', [])
 
 			var state = this;
 
-			var information = [];
+			state.tableGate = false;
+			state.reposonseGate = false;
 			
 			state.fetch = function(user){
 				$http.get("https://api.github.com/search/issues?q=" + user.name + "+is:open&sort=created&order=asc?page=4&per_page=100").then(function(res){
 					state.data = res;
-					console.log(state.data);
+					console.log(state.data.status);					
 					state.logRes = dataManipulate(state.data);
 				})		
 
