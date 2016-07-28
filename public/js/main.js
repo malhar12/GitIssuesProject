@@ -9,7 +9,13 @@ angular.module('root', [])
 			state.fetch = function(user){
 				$http.get("https://api.github.com/search/issues?q=" + user.name + "+is:open&sort=created&order=asc?page=4&per_page=100").then(function(res){
 					state.data = res;
-					console.log(state.data.status);					
+					var status = state.data.status;
+
+					if(parseInt(status) == 200){
+						state.tableGate = true;
+					} else {
+						state.reposonseGate = true;
+					}
 					state.logRes = dataManipulate(state.data);
 				})		
 
@@ -70,4 +76,3 @@ angular.module('root', [])
 				return logObject;
 			}
 });
-
