@@ -1,0 +1,5 @@
+{
+	"name": "GitIssuesRepoProject",
+	"description": "Angular JS app integrated with NodeJS for driving analytics on Github search api",
+	"keywords": ["node", "angular", "express"]
+}

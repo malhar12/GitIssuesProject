@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<script src="/js/jquery-3.0.0.js"></script>
+	<script src="/js/angular.js"></script>
+	<script src="/js/main.js"></script>
+</head>
+<body  ng-app="root">
+	<div class="container text-center">
+		<h1>Welcome to the Git Repo Checker</h1>
+	</div>
+	<div class="row-md-2"></div>
+	<div class="container" ng-controller="LinkDisplayController as linkdisplayCtrl"	>
+		<div class="col-md-3 col-md-offset-1" >
+			<h2>Enter Git URL:</h2>
+			<input type="text" ng-model="user.name" required/>
+			<button ng-click="linkdisplayCtrl.fetch(user)">Submit</button>
+		</div>
+		<div class="col-md-7 col-md-offset-1" ng-show="true">
+			<table class="table-striped">
+				<tr>
+					<td>Total no. of Open Issues :</td>
+					<td>{{linkdisplayCtrl.logRes[0]}}</td>
+				</tr>
+				<tr>
+					<td>Issues opened in last 24 hours: </td>
+					<td>{{linkdisplayCtrl.logRes[1]}}</td>
+				</tr>
+				<tr>
+					<td>Issues still open more than 24 hours but less than 7 days: </td>
+					<td>{{linkdisplayCtrl.logRes[2]}}</td>
+				</tr>
+				<tr>
+					<td>Issues being open for more than 7 days: </td>
+					<td>{{linkdisplayCtrl.logRes[3]}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-6 col-md-offset-2" ng-show="true">
+			<h3>The URL did not find a response. Please enter a correct github  url</h3>
+	</div>
+	<!-- /container -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#home').addClass("active");
+		});
+	</script>
+</body>
+</html>
