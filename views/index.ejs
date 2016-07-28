@@ -5,6 +5,11 @@
 	<script src="/js/jquery-3.0.0.js"></script>
 	<script src="/js/angular.js"></script>
 	<script src="/js/main.js"></script>
+	<style>
+	.top-buffer{
+		margin-top:	20px;
+	}
+	</style>
 </head>
 <body  ng-app="root">
 	<div class="container text-center">
@@ -12,12 +17,12 @@
 	</div>
 	<div class="row-md-2"></div>
 	<div class="container" ng-controller="LinkDisplayController as linkdisplayCtrl"	>
-		<div class="col-md-3 col-md-offset-1" >
+		<div class="col-md-3 col-md-offset-1 top-buffer" >
 			<h2>Enter Git URL:</h2>
 			<input type="text" ng-model="user.name" required/>
 			<button ng-click="linkdisplayCtrl.fetch(user)">Submit</button>
 		</div>
-		<div class="col-md-7 col-md-offset-1" ng-show="linkdisplayCtrl.tableGate">
+		<div class="col-md-7 col-md-offset-1 top-buffer" ng-show="linkdisplayCtrl.tableGate" ng-cloak>
 			<table class="table-striped">
 				<tr>
 					<td>Total no. of Open Issues :</td>
@@ -38,14 +43,11 @@
 			</table>
 		</div>
 	</div>
-	<div class="col-md-6 col-md-offset-2" ng-show="linkdisplayCtrl.responseGate">
+	<div class="col-md-6 col-md-offset-2 top-buffer" ng-show="linkdisplayCtrl.responseGate" ng-cloak>
 			<h3>The URL did not find a response. Please enter a correct github  url</h3>
 	</div>
-	<!-- /container -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#home').addClass("active");
-		});
-	</script>
+	<div class="col-md-4 col-md-offset-6 top-buffer" style="margin-top: 80px;">
+			<h4><em>- Developed by Malhar Deshpande</em></h4>
+	</div>
 </body>
 </html>
