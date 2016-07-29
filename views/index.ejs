@@ -1,3 +1,9 @@
+<!--*****************************
+*******************************
+* Created by - Malhar Deshpande
+*******************************
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,16 +18,20 @@
 	</style>
 </head>
 <body  ng-app="root">
-	<div class="container text-center">
+
+	<!--Title container-->
+	<div class="container text-center top-buffer">
 		<h1>Welcome to the Git Repo Checker</h1>
 	</div>
-	<div class="row-md-2"></div>
+	<!--Main cintainer-->
+	<div class="top-buffer"></div>
 	<div class="container" ng-controller="LinkDisplayController as linkdisplayCtrl"	>
 		<div class="col-md-3 col-md-offset-1 top-buffer" >
 			<h2>Enter Git URL:</h2>
 			<input type="text" ng-model="user.name" required/>
 			<button ng-click="linkdisplayCtrl.fetch(user)">Submit</button>
 		</div>
+		<!--Analytics derived are displayed in this table using ng directives-->
 		<div class="col-md-7 col-md-offset-1 top-buffer" ng-show="linkdisplayCtrl.tableGate" ng-cloak>
 			<table class="table-striped">
 				<tr>
