@@ -14,7 +14,7 @@ angular.module('root', [])
 
 			//boolean variables that will trigger conditions for ng-show directive
 			state.tableGate = false;
-			state.reposonseGate = false;
+			state.responseGate = false;
 			
 			//makes use of the user input from the text field
 			//to make a GET request via Github Search api
@@ -22,17 +22,22 @@ angular.module('root', [])
 			//When making the GET Request, I am only making a reuest for open issues
 			//so all the issues that we get in the reposne are open
 			state.fetch = function(user){
-				$http.get("https://api.github.com/search/issues?q=" + user.name + "+is:open&sort=created&order=asc?page=4&per_page=100").then(function(res){
-					state.data = res;
-					var status = state.data.status;
+				if(typeof user === "undefined"){
+					state.responseGate = true;
+					alert("Empty string is an invalid input. Please enter a valid public repository.");
+				} else {
+					$http.get("https://api.github.com/search/issues?q=" + user.name + "+&sort=created&order=asc?page=4&per_page=100").then(function(res){
+						state.data = res;
+						var status = state.data.status;
 
-					if(parseInt(status) == 200){
-						state.tableGate = true;
-					} else {
-						state.reposonseGate = true;
-					}
+						if(parseInt(status) == 200){
+							state.tableGate = true;
+						} else {
+							state.responseGate = true;
+						}
 					state.logRes = dataManipulate(state.data);
-				})		
+					})
+				}			
 
 
 			};
