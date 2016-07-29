@@ -27,7 +27,7 @@ The app asks user to name the repository who'sanalytics need to be derived. Then
 of the repository to make a GET request call via Github search api. This app makes use of Bootstrap 
 framework to provide the necesscary CSS classes for styling. 
 
-Specifictions of the Github api call are as follows: 
+Specifictions of the Github api call are as follows: <br />
 1. All the calls GET requestsmade via the Github search api are unauthenticated. <br />
 2. Only a call to public repository is possible. <br />
 3. GET Request is for all the open issues of a particular open Github repository. <br />
@@ -35,10 +35,10 @@ Specifictions of the Github api call are as follows:
 5. We make use of created_at timestamp to find date of creation of an open issue
    and compare it with current date to see it falls under which category <br />
 6. There are 4 categories: <br />
-   i. Total number of open issues : All the reposnes will by default fall under this category <br />
-   ii. Number of issues that were opened in the last 24 hours. <br />
-   iii. Number of issues that are open for more than 24 hours but less than 7 days. <br />
-   iv. Number of issues that are open for more than 7 days. <br />
+      i. Total number of open issues : All the reposnes will by default fall under this category <br />
+      ii. Number of issues that were opened in the last 24 hours. <br />
+      iii. Number of issues that are open for more than 24 hours but less than 7 days. <br />
+      iv. Number of issues that are open for more than 7 days. <br />
 7. Comaprison of current date & created_at timestamp increments counter for the respective ii, iii & iv group. <br />
 8. These analytics results are then displayed back to the user in the form of a table. <br />
 
