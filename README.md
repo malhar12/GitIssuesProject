@@ -28,19 +28,19 @@ of the repository to make a GET request call via Github search api. This app mak
 framework to provide the necesscary CSS classes for styling. 
 
 Specifictions of the Github api call are as follows: 
-1. All the calls GET requestsmade via the Github search api are unauthenticated. 
-2. Only a call to public repository is possible. 
-3. GET Request is for all the open issues of a particular open Github repository. 
-4. So all the reposnses that we get are of open issues. 
+1. All the calls GET requestsmade via the Github search api are unauthenticated. <br />
+2. Only a call to public repository is possible. <br />
+3. GET Request is for all the open issues of a particular open Github repository. <br />
+4. So all the reposnses that we get are of open issues. <br />
 5. We make use of created_at timestamp to find date of creation of an open issue
-   and compare it with current date to see it falls under which category 
-6. There are 4 categories: 
-   i. Total number of open issues : All the reposnes will by default fall under this category 
-   ii. Number of issues that were opened in the last 24 hours. 
-   iii. Number of issues that are open for more than 24 hours but less than 7 days. 
-   iv. Number of issues that are open for more than 7 days. 
-7. Comaprison of current date & created_at timestamp increments counter for the respective ii, iii & iv group. 
-8. These analytics results are then displayed back to the user in the form of a table. 
+   and compare it with current date to see it falls under which category <br />
+6. There are 4 categories: <br />
+   i. Total number of open issues : All the reposnes will by default fall under this category <br />
+   ii. Number of issues that were opened in the last 24 hours. <br />
+   iii. Number of issues that are open for more than 24 hours but less than 7 days. <br />
+   iv. Number of issues that are open for more than 7 days. <br />
+7. Comaprison of current date & created_at timestamp increments counter for the respective ii, iii & iv group. <br />
+8. These analytics results are then displayed back to the user in the form of a table. <br />
 
 In order to host website, I have integrated my AngularJS web app with a backend of NodeJS to host it on 
 Heroku. I have used the NodeJS skeleton from [site](http://www.nodeclipse.org)
@@ -54,11 +54,11 @@ Heroku. I have used the NodeJS skeleton from [site](http://www.nodeclipse.org)
    by making use of a data structure such as a HashTable which has an efficient lookup time complexity. 
 2. Add angular mechanism to reset the app to default intital state. Right now, after using the web app for the first 
    time, there is no mechanism to return the app to the initial unused state. 
-3. Test the web app for negetive test cases such as 
-		i. empty string 
-		ii. sequence of numbers or special characters (basically anything else other than a character) 
-		iii. invalid length of input 
-		iv. Access to unauthorized repository 
+3. Test the web app for negetive test cases such as <br />
+		i. empty string <br />
+		ii. sequence of numbers or special characters (basically anything else other than a character) <br />
+		iii. invalid length of input <br />
+		iv. Access to unauthorized repository <br />
 		v. network connection problems 
 
 
