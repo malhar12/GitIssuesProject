@@ -12,7 +12,7 @@ These instructions are based for the following test input link https://github.co
 public repository of Shippable/support/issues
 
 1. As the web app opens, you will see only a text field input with a submit button. 
-2. Enter the input "Shippable" in thetext field. (Only enter the name of the repository) 
+2. Enter the input "Shippable/support/issues" in the text field. (Only enter the name of the repository) 
 3. Click the submit button 
 4. A table appears on the right side with the analytics. 
 5. If a repository does not exist or if we try to access a private/unauthorized repository following text gets displayed
@@ -35,10 +35,10 @@ Specifictions of the Github api call are as follows: <br />
 5. We make use of created_at timestamp to find date of creation of an open issue
    and compare it with current date to see it falls under which category <br />
 6. There are 4 categories: <br />
-      i. Total number of open issues : All the reposnes will by default fall under this category <br />
-      ii. Number of issues that were opened in the last 24 hours. <br />
-      iii. Number of issues that are open for more than 24 hours but less than 7 days. <br />
-      iv. Number of issues that are open for more than 7 days. <br />
+		i. Total number of open issues : All the reposnes will by default fall under this category <br />
+		ii. Number of issues that were opened in the last 24 hours. <br />
+		iii. Number of issues that are open for more than 24 hours but less than 7 days. <br />
+		iv. Number of issues that are open for more than 7 days. <br />
 7. Comaprison of current date & created_at timestamp increments counter for the respective ii, iii & iv group. <br />
 8. These analytics results are then displayed back to the user in the form of a table. <br />
 
