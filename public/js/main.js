@@ -55,7 +55,7 @@ angular.module('root', [])
 				var currDate = d.toString().split(" ");
 				var currTime = currDate[4].split(":");
 				
-				var itemsArray = dat.data.items;
+				var itemsArray = dat.data;
 				
 				var currMonth;
 				var Issues = itemsArray.length; //counter for total number of open issues
