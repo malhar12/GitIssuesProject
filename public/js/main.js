@@ -26,16 +26,17 @@ angular.module('root', [])
 					state.responseGate = true;
 					alert("Empty string is an invalid input. Please enter a valid public repository.");
 				} else {
-					$http.get("https://api.github.com/search/issues?q=" + user.name + "+&sort=created&order=asc?page=4&per_page=100").then(function(res){
+					$http.get("https://api.github.com/repos/"+ user.name +"/support/issues?q=state:open&per_page=100&sort=created&order=asc").then(function(res){
 						state.data = res;
+						
 						var status = state.data.status;
 
-						if(parseInt(status) == 200){
-							state.tableGate = true;
-						} else {
-							state.responseGate = true;
-						}
-					state.logRes = dataManipulate(state.data);
+						state.tableGate = true;
+						state.logRes = dataManipulate(state.data);
+
+					}, function(error){
+						state.responseGate = true;
+						alert("Repository not found. Enter a valid name");
 					})
 				}			
 
@@ -78,28 +79,49 @@ angular.module('root', [])
 				//loop goes through all the open issues and accesses their created_at timestamp
 				//and compare it with current date timestamp
 				//based on the result of this comparison respective counter gets incremented
-				for(i=0;i<itemsArray.length;i++){
+				for(i=0;i<itemsArray.length;i++){	
+					var diffMilli = moment().diff(itemsArray[i].created_at);
+					
+					var diff = moment.duration(diffMilli);
+					
 					var dateAndTime = itemsArray[i].created_at.replace("-",":").replace("-",":").replace("T",":").split(":");
+					
 					var month = parseInt(dateAndTime[1]);
 					var year = parseInt(dateAndTime[0]);
-					var date = parseInt(dateAndTime[2]);
-					if(currYear == year){
-						if(currMonth == month){
-							if(curDate == date){
-								Issues24++;
-							} else {
-								if((currDate - date)<=7){
-									Issues247++;
-								} else{
-									Issues700++;
-								}
+
+					if(year == currYear && month == currMonth){
+						if(diff._data.days == 0 && diff._data.hours <= 23){
+							Issues24++;
+						} else if(diff._data.days > 0 && diff._data.days <= 7){
+							if(diff._data.days == 7 && diff._data.hours >0){
+								Issues700++;
+							}else{
+								Issues247++;
 							}
-						}else{
+						} else if(diff._data.days > 7){
 							Issues700++;
 						}
-					} else {
+					} else if(year == currYear && month < currMonth){
+						if((currMonth - month) == 1){
+							if(diff._data.days == 0 && diff._data.hours <= 23){
+								Issues24++;
+							} else if(diff._data.days > 0 && diff._data.days <= 7){
+								if(diff._data.days == 7 && diff._data.hours >0){
+									Issues700++;
+								}else{
+									Issues247++;
+								}
+							} else if(diff._data.days > 7){
+							Issues700++;
+							}
+						} else{
+							Issues700++;
+						}
+					} else if(year < currYear){
 						Issues700++;
 					}
+
+					
 				}
 				//At the end, we pack all our analytics into an array obejct and return  it
 				var logObject = [Issues, Issues24, Issues247, Issues700];
