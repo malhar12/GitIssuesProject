@@ -26,7 +26,7 @@ angular.module('root', [])
 					state.responseGate = true;
 					alert("Empty string is an invalid input. Please enter a valid public repository.");
 				} else {
-					$http.get("https://api.github.com/repos/"+ user.name +"/support/issues?q=state:open&per_page=100&sort=created&order=asc").then(function(res){
+					$http.get("https://api.github.com/repos/"+ user.name +"?q=state:open&per_page=100&sort=created&order=asc").then(function(res){
 						state.data = res;
 						
 						var status = state.data.status;
