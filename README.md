@@ -12,7 +12,7 @@ These instructions are based for the following test input link https://github.co
 public repository of Shippable/support/issues
 
 1. As the web app opens, you will see only a text field input with a submit button. 
-2. Enter the input "Shippable/support/issues" in the text field. (Only enter the name of the repository) 
+2. Enter the input "shippable" in the text field. (Only enter the name of the repository) 
 3. Click the submit button 
 4. A table appears on the right side with the analytics. 
 5. If a repository does not exist or if we try to access a private/unauthorized repository following text gets displayed
