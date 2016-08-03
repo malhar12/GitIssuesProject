@@ -12,7 +12,7 @@ These instructions are based for the following test input link https://github.co
 public repository of Shippable/support/issues
 
 1. As the web app opens, you will see only a text field input with a submit button. 
-2. Enter the input "Shippable/support/issues" in thetext field. 
+2. Enter the input "Shippable" in thetext field. (Only enter the name of the repository) 
 3. Click the submit button 
 4. A table appears on the right side with the analytics. 
 5. If a repository does not exist or if we try to access a private/unauthorized repository following text gets displayed
@@ -49,12 +49,13 @@ Heroku. I have used the NodeJS skeleton from [site](http://www.nodeclipse.org)
 
 ## IMPROVEMENTS THAT CAN BE DONE TO THE WEB APP:
 
-1. Make the code more efficient. To do the timestamp comparisons, I have used a for loop due to which it takes
+1. Support for pagination.
+2. Make the code more efficient. To do the timestamp comparisons, I have used a for loop due to which it takes
    around 4-5 seconds to do operations on the response and display it on the screen. This time can be improved
    by making use of a data structure such as a HashTable which has an efficient lookup time complexity. 
-2. Add angular mechanism to reset the app to default intital state. Right now, after using the web app for the first 
+3. Add angular mechanism to reset the app to default intital state. Right now, after using the web app for the first 
    time, there is no mechanism to return the app to the initial unused state. 
-3. Test the web app for negetive test cases such as <br />
+4. Test the web app for negetive test cases such as <br />
 		i. empty string <br />
 		ii. sequence of numbers or special characters (basically anything else other than a character) <br />
 		iii. invalid length of input <br />
