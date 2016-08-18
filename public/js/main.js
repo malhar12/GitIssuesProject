@@ -26,13 +26,14 @@ angular.module('root', [])
 					state.responseGate = true;
 					alert("Empty string is an invalid input. Please enter a valid public repository.");
 				} else {
-					$http.get("https://api.github.com/repos/"+ user.name +"/support/issues?q=state:open&per_page=100&sort=created&order=asc").then(function(res){
+					$http.get("https://api.github.com/repos/"+ user.name +"?q=state:open&per_page=100&sort=created&order=asc").then(function(res){
+						
 						state.data = res;
 						
 						var status = state.data.status;
-
+						
 						state.tableGate = true;
-						state.logRes = dataManipulate(state.data);
+						state.logRes = dataManipulate(res.data);
 
 					}, function(error){
 						state.responseGate = true;
@@ -55,7 +56,7 @@ angular.module('root', [])
 				var currDate = d.toString().split(" ");
 				var currTime = currDate[4].split(":");
 				
-				var itemsArray = dat.data;
+				var itemsArray = dat;
 				
 				var currMonth;
 				var Issues = itemsArray.length; //counter for total number of open issues
@@ -124,7 +125,7 @@ angular.module('root', [])
 					
 				}
 				//At the end, we pack all our analytics into an array obejct and return  it
-				var logObject = [Issues, Issues24, Issues247, Issues700];
+				var logObject = [Issues24+Issues247+Issues700, Issues24, Issues247, Issues700];
 
 				return logObject;
 			}
